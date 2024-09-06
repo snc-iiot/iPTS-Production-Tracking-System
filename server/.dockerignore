@@ -1,0 +1,5 @@
+# Ignore NestJS files
+node_modules
+dist
+*.zip
+*.cmd

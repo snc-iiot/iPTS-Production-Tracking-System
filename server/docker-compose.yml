@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  iqcs-api-v1-dev:
+    build: .
+    # container_name: my_nest_app
+    ports:
+      - '30114:3000' # DEV
+      # - '30115:3000' # PROD
+    restart: always
