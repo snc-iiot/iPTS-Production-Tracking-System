@@ -77,101 +77,82 @@ export const columns: ColumnDef<TData>[] = [
     accessorKey: "Order",
     header: ({ column }) => {
       return (
-        <div className="flex justify-center">
-          <Button
-            variant="ghost"
-            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          >
-            Order
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Order
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
       );
     },
-    cell: ({ row }) => (
-      <div className="lowercase text-center">{row.getValue("Order")}</div>
-    ),
+    cell: ({ row }) => <div className="lowercase">{row.getValue("Order")}</div>,
   },
   {
     accessorKey: "Description",
     header: ({ column }) => {
       return (
-        <div className="flex justify-center">
-          <Button
-            variant="ghost"
-            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          >
-            Description
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Description
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
       );
     },
     cell: ({ row }) => (
-      <div className="lowercase text-center">{row.getValue("Description")}</div>
+      <div className="lowercase">{row.getValue("Description")}</div>
     ),
   },
   {
     accessorKey: "Qty",
     header: ({ column }) => {
       return (
-        <div className="flex justify-center">
-          <Button
-            variant="ghost"
-            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          >
-            Quantity
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Quantity
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
       );
     },
-    cell: ({ row }) => (
-      <div className="lowercase text-center">{row.getValue("Qty")}</div>
-    ),
+    cell: ({ row }) => <div className="lowercase">{row.getValue("Qty")}</div>,
   },
   {
-    accessorKey: "Yield",
+    accessorKey: "Yield	",
     header: ({ column }) => {
       return (
-        <div className="flex justify-center">
-          <Button
-            variant="ghost"
-            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          >
-            Yield
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Yield
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
       );
     },
-    cell: ({ row }) => (
-      <div className="lowercase text-center">{row.getValue("Yield")}</div>
-    ),
+    cell: ({ row }) => <div className="lowercase">{row.getValue("Yield")}</div>,
   },
   {
-    accessorKey: "Scrap",
+    accessorKey: "Scrap	",
     header: ({ column }) => {
       return (
-        <div className="flex justify-center">
-          <Button
-            variant="ghost"
-            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          >
-            Scrap
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Scrap
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
       );
     },
-    cell: ({ row }) => (
-      <div className="lowercase text-center">{row.getValue("Scrap")}</div>
-    ),
+    cell: ({ row }) => <div className="lowercase">{row.getValue("Scrap")}</div>,
   },
   {
     id: "actions",
     enableHiding: false,
-    header: "Actions",
     cell: ({ row }) => {
       const payment = row.original;
 
@@ -193,7 +174,7 @@ export const columns: ColumnDef<TData>[] = [
   },
 ];
 
-export function HomePage() {
+export function DataTableDemo() {
   const [data, setData] = React.useState<TData[]>([]);
   const testAPI = async () => {
     try {
@@ -233,7 +214,6 @@ export function HomePage() {
       rowSelection,
     },
   });
-  console.log(rowSelection);
   React.useEffect(() => {
     testAPI();
   }, []);

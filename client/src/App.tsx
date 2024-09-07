@@ -4,8 +4,9 @@ import { Badge } from "@/components/ui/badge";
 import { ThemeProvider } from "@/components/theme-provider";
 import { useTheme } from "@/components/theme-provider";
 import { AppLayout } from "@/layouts";
-import { HomePage } from "@/pages";
+import { HomePage, CuttingPage } from "@/pages";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { DataTableDemo } from "./pages/test";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,14 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <HomePage />,
+      },
+      {
+        path: "cutting",
+        element: <CuttingPage />,
+      },
+      {
+        path: "test",
+        element: <DataTableDemo />,
       },
     ],
   },
