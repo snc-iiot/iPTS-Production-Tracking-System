@@ -1,4 +1,3 @@
-import React from "react";
 import {
   LogOut,
   Scissors,
@@ -12,46 +11,37 @@ import {
   Menu,
 } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { useState } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export const Nav = () => {
   const navgator = useNavigate();
   const location = useLocation();
-  const [isSheetOpen, setIsSheetOpen] = useState<boolean>(false);
 
   console.log(location.pathname);
   return (
-    <nav className="flex w-full p-2 border gap-2 justify-between">
-      <div className="flex gap-2 items-center">
+    <nav className='flex w-full p-2 border gap-2 justify-between'>
+      <div className='flex gap-2 items-center'>
         <img
-          src="/logo.webp"
-          className="sm:w-28 w-20 h-min pr-1 border-r-[1.5px] border-black/75"
-          alt=""
+          src='/logo.webp'
+          className='sm:w-28 w-20 h-min pr-1 border-r-[1.5px] border-black/75'
+          alt=''
         />
         <div>
-          <p className="font-bold  text-[0.8rem] sm:text-md">
+          <p className='font-bold  text-[0.8rem] sm:text-md'>
             PRODUCTION TRACKING SYSTEM
           </p>
-          <p className="text-[0.6rem] text-xs">
+          <p className='text-[0.6rem] text-xs'>
             บริษัท เอส เอ็น ซี ฟอร์เมอร์ จำกัด (มหาชน) สาขาระยอง
           </p>
         </div>
       </div>
-      <div className="xl:hidden  h-full flex items-center">
+      <div className='xl:hidden  h-full flex items-center'>
         <Sheet>
           <SheetTrigger>
             <Menu size={30}></Menu>
           </SheetTrigger>
-          <SheetContent className="w-max ">
-            <div className="h-full relative">
+          <SheetContent className='w-max '>
+            <div className='h-full relative'>
               {[
                 { name: "Home", icon: <Home size={20} /> },
                 { name: "Cutting", icon: <Scissors size={20} /> },
@@ -82,16 +72,14 @@ export const Nav = () => {
                             ? "/login"
                             : `/${info.name.toLowerCase()}`
                         );
-                      }}
-                    >
+                      }}>
                       <div
                         className={
                           "flex gap-2 justify-items-center p-2 " +
                           (location.pathname === `/${info.name.toLowerCase()}`
                             ? "text-red-600"
                             : "hover:text-red-600")
-                        }
-                      >
+                        }>
                         {info.icon} <p>{info.name}</p>
                       </div>
                     </button>
@@ -103,7 +91,7 @@ export const Nav = () => {
         </Sheet>
       </div>
 
-      <div className="xl:flex hidden">
+      <div className='xl:flex hidden'>
         {[
           { name: "Home", icon: <Home size={20} /> },
           { name: "Cutting", icon: <Scissors size={20} /> },
@@ -115,7 +103,7 @@ export const Nav = () => {
           { name: "Packaging", icon: <Box size={20} /> },
           { name: "ออกจากระบบ", icon: <LogOut size={20} /> },
         ].map((info, index) => (
-          <div key={index} className=" text-red-600">
+          <div key={index} className=' text-red-600'>
             <button
               className={
                 "hover-underline-animation rounded-md bg-transparent text-sm font-normal text-secondary-foreground hover:text-line-green " +
@@ -129,16 +117,14 @@ export const Nav = () => {
                     ? "/login"
                     : `/${info.name.toLowerCase()}`
                 );
-              }}
-            >
+              }}>
               <div
                 className={
                   "flex gap-2 justify-items-center p-2 " +
                   (location.pathname === `/${info.name.toLowerCase()}`
                     ? "text-red-600"
                     : "hover:text-red-600")
-                }
-              >
+                }>
                 {info.icon} <p>{info.name}</p>
               </div>
             </button>
